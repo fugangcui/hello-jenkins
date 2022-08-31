@@ -1,5 +1,19 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-commit_msg=$(cat "${1:?Missing commit message file}")
-echo commit_msg
+message="$(cat $1)"
+requiredPattern="/^\[(VD-\d+)]:.+/ig"
+if ! [[ $message =~ $requiredPattern ]];
+then
+  echo "🚨 Wrong commit message! 😕"
+  echo "The commit message must have this format:"
+  echo "<[ticket number]>:<what was done>"
+  echo "Example: [VD-1234]: Add new file"
+  echo "-"
+  echo "Your commit message was:"
+  echo $message
+  echo "-"
+  echo "For more information, check script in .husky/commit-msg"
+  echo "-"
+  exit 1
+fi
