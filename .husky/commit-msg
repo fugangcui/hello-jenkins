@@ -3,7 +3,7 @@
 
 message="$(cat $1)"
 requiredPattern="/^\[(VD-\d+)]:.+/ig"
-if ! [[ $message =~ $requiredPattern ]];
+if  [[ $message =~ $requiredPattern ]];
 then
   echo "🚨 Wrong commit message! 😕"
   echo "The commit message must have this format:"
