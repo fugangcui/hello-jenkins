@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh 'node --version'
             }
-        },
+        }
         stage('Test') {
             steps {
                 // echo env.is_print_env
@@ -26,7 +26,7 @@ pipeline {
                     }
                 }
             }
-        },
+        }
         stage('deploy to dev') {
             steps {
                 script {
@@ -37,7 +37,7 @@ pipeline {
                     }
                 }
             }
-        },
+        }
         stage('deploy to staging') {
             steps {
                 input: message: "Deploy To Staging"
