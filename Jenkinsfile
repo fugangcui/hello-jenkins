@@ -16,11 +16,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // echo env.is_print_env
+                echo params.is_print_env
                 script {
                     if (params.is_print_env) {
-                        sh "printenv",
                         echo 'Run testing....'
+                        sh "printenv"
                     } else {
                         echo "no execute 'sh printenv'"
                     }
