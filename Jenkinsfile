@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo params.is_print_env
+                echo "$params.is_print_env"
                 script {
                     if (params.is_print_env) {
                         echo 'Run testing....'
