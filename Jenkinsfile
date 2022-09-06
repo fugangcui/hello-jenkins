@@ -40,7 +40,7 @@ pipeline {
         }
         stage('deploy to staging') {
             steps {
-                input: message: "Deploy To Staging"
+                input message: 'Deploy To Staging'
                 script {
                     if (params.build_version != '') {
                         echo 'deploy to staging'
